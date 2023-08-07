@@ -30,10 +30,6 @@ cbindgen = {version = "0.24" }
 bench = false
 crate-type = ["lib", "cdylib"]
 
-[[bench]]
-name = "benches"
-path = "benches/mod.rs"
-harness = false
 
 [package.metadata.wasm-pack.profile.release]
 wasm-opt = ["-Oz"]
