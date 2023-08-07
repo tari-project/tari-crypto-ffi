@@ -1,0 +1,42 @@
+[package]
+name = "tari_crypto_ffi"
+description = "Tari Cryptography library"
+authors = ["The Tari Development Community"]
+repository = "https://github.com/tari-project/tari"
+categories = ["cryptography"]
+homepage = "https://tari.com"
+readme = "README.md"
+license = "BSD-3-Clause"
+version = "0.17.0"
+edition = "2018"
+
+[dependencies]
+tari_crypto = { git = "https://github.com/swvheerden/tari-crypto.git",  rev = "bd451c1d79a42510c38f73e24c6b24f88b5117ba" }
+tari_utilities = { git = "https://github.com/tari-project/tari_utilities.git",  rev = "c06726322683c4671b93388b444d108103cd7b55", default-features = false, features = ["zero"] }
+blake2 = { version = "0.10", default-features = false  }
+curve25519-dalek = { package = "tari-curve25519-dalek",  version = "4.0.3", default-features = false, features = [ "alloc", "rand_core", "precomputed-tables", "zeroize"] }
+digest = { version = "0.10", default-features = false }
+rand_core = { version = "0.6" , default-features = false}
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false }
+
+[build-dependencies]
+cbindgen = {version = "0.24" }
+
+
+[lib]
+# Disable benchmarks to allow Criterion to take over
+bench = false
+crate-type = ["lib", "cdylib"]
+
+[[bench]]
+name = "benches"
+path = "benches/mod.rs"
+harness = false
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-Oz"]
+
+[package.metadata.cargo-machete]
+ignored = ["getrandom"]
