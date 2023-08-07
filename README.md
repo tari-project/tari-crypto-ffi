@@ -1,6 +1,6 @@
 # Tari Crypto FFI Wrapper
 
-This is a FFI library wrapper for Tari Crypto 
+This is a FFI library wrapper for (Tari Crypto)[https://github.com/tari-project/tari-crypto]
 
 # Building the C FFI module
 
