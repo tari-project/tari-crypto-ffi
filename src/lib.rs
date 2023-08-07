@@ -1,14 +1,13 @@
 // Copyright 2022 The Tari Project
 // SPDX-License-Identifier: BSD-3-Clause
+//! Tari-Crypto-Ffi
 
 #[macro_use]
 extern crate std;
 
-// Copyright 2020. The Tari Project
-// SPDX-License-Identifier: BSD-3-Clause
 
-/// FFI interface for using this library in other langauges that support it
-use std::os::raw::c_char;
+
+
 mod error;
 mod keys;
 
@@ -23,7 +22,7 @@ pub use keys::{
     verify_comandpubsig,
     verify_comsig,
 };
-
+use std::os::raw::c_char;
 const VERSION: &str = concat!(env!("CARGO_PKG_VERSION"), "\u{00}");
 
 /// The version of this library
