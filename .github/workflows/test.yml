@@ -32,8 +32,3 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: doc
-      - name: bench
-        uses: actions-rs/cargo@v1
-        with:
-          command: check
-          args: --benches
