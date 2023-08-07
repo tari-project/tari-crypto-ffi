@@ -5,11 +5,10 @@
 #[macro_use]
 extern crate std;
 
-
-
-
 mod error;
 mod keys;
+
+use std::os::raw::c_char;
 
 pub use error::lookup_error_message;
 pub use keys::{
@@ -22,7 +21,6 @@ pub use keys::{
     verify_comandpubsig,
     verify_comsig,
 };
-use std::os::raw::c_char;
 const VERSION: &str = concat!(env!("CARGO_PKG_VERSION"), "\u{00}");
 
 /// The version of this library
